@@ -1,9 +1,8 @@
-import { Col, Layout, Row } from "antd";
-import type { NextPage } from "next";
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
+import { NavBar } from "../../components/NavBar";
+import { Card, Col, Layout, Row } from "antd";
 import styled from "styled-components";
-import { ItemCard } from "../components/ItemCard";
-import { NavBar } from "../components/NavBar";
+import { ItemCard } from "../../components/ItemCard";
 
 const Wrapper = styled.div`
   .ant-layout-content {
@@ -14,13 +13,15 @@ const Wrapper = styled.div`
   }
 `;
 
-const Home: NextPage = () => {
+const MensClothing = () => {
   const { Header, Content } = Layout;
   const [list, setList] = useState<any[]>([]);
 
   useEffect(() => {
     const api = async () => {
-      const data = await fetch("https://fakestoreapi.com/products");
+      const data = await fetch(
+        "https://fakestoreapi.com/products/category/men's clothing"
+      );
       const jsonData = await data.json();
       setList(jsonData);
     };
@@ -54,5 +55,4 @@ const Home: NextPage = () => {
     </>
   );
 };
-
-export default Home;
+export default MensClothing;
