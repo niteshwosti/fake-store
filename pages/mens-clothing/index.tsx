@@ -42,6 +42,7 @@ const MensClothing = () => {
               return (
                 <Col>
                   <ItemCard
+                    id={value.id}
                     price={"$" + value.price}
                     productTitle={value.title}
                     src={value.image}

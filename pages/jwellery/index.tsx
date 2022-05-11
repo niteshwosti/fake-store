@@ -26,7 +26,6 @@ const Jwellery = () => {
       setList(jsonData);
     };
     api();
-    console.log("this is list", list);
   }, []);
 
   return (
@@ -38,10 +37,13 @@ const Jwellery = () => {
         {/* <h2>Electronic Devices</h2> */}
         <Content>
           <Row gutter={35}>
-            {list.map((value) => {
+            {list.map((value, key) => {
+              console.log(value.id);
               return (
                 <Col>
                   <ItemCard
+                    key={key}
+                    id={value.id}
                     price={"$" + value.price}
                     productTitle={value.title}
                     src={value.image}

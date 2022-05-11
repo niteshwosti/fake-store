@@ -1,4 +1,5 @@
 import { Avatar, Card } from "antd";
+import Link from "next/link";
 import React from "react";
 import styled from "styled-components";
 
@@ -10,26 +11,21 @@ interface CardProps {
   src?: any;
   productTitle?: string;
   price?: string;
-  onClick?: () => void;
+  id?: any;
 }
-
-const ItemCard: React.FC<CardProps> = ({
-  src,
-  productTitle,
-  price,
-  onClick,
-}) => {
+const ItemCard: React.FC<CardProps> = ({ src, productTitle, price, id }) => {
   return (
     <>
       <MainWrapper>
-        <Card
-          hoverable
-          cover={<img src={src} height="250" />}
-          style={{ width: 250 }}
-          onClick={onClick}
-        >
-          <Card.Meta title={productTitle} description={price} />
-        </Card>
+        <Link href={`/product-details/${id}`}>
+          <Card
+            hoverable
+            cover={<img src={src} height="250" />}
+            style={{ width: 250 }}
+          >
+            <Card.Meta title={productTitle} description={price} />
+          </Card>
+        </Link>
       </MainWrapper>
     </>
   );

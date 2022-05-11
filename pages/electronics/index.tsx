@@ -15,7 +15,7 @@ const Wrapper = styled.div`
 
 const Electronics = () => {
   const { Header, Content } = Layout;
-  const [list, setList] = useState<any[]>([])
+  const [list, setList] = useState<any[]>([]);
 
   useEffect(() => {
     const api = async () => {
@@ -42,7 +42,8 @@ const Electronics = () => {
               return (
                 <Col>
                   <ItemCard
-                    price={'$'+value.price}
+                    id={value.id}
+                    price={"$" + value.price}
                     productTitle={value.title}
                     src={value.image}
                   />
